@@ -3,147 +3,149 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Interactive Exam Planner</title>
+<title>Detailed Law Exam Planner</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #111827, #1f2937);
-    color: white;
-    min-height: 100vh;
-    padding: 20px;
+body{
+font-family:Arial,sans-serif;
+background:#0f172a;
+color:white;
+padding:20px;
+line-height:1.6;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
+.container{
+max-width:1200px;
+margin:auto;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 2.5rem;
+h1{
+text-align:center;
+font-size:2.8rem;
+margin-bottom:10px;
 }
 
-.subtitle {
-    text-align: center;
-    color: #cbd5e1;
-    margin-bottom: 30px;
+.subtitle{
+text-align:center;
+color:#cbd5e1;
+margin-bottom:30px;
 }
 
-.progress-container {
-    background: rgba(255,255,255,0.1);
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 30px;
-    height: 25px;
+.progress-container{
+height:25px;
+background:#1e293b;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:15px;
 }
 
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(to right, #22c55e, #4ade80);
-    transition: width 0.3s ease;
+.progress-bar{
+height:100%;
+width:0%;
+background:linear-gradient(to right,#22c55e,#4ade80);
+transition:0.3s;
 }
 
-.progress-text {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1rem;
+.progress-text{
+text-align:center;
+margin-bottom:35px;
 }
 
-.phase {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 25px;
-    margin-bottom: 25px;
-    backdrop-filter: blur(10px);
+.phase{
+background:#111827;
+padding:25px;
+border-radius:20px;
+margin-bottom:30px;
+border:1px solid rgba(255,255,255,0.08);
 }
 
-.phase h2 {
-    margin-bottom: 20px;
-    color: #93c5fd;
+.phase h2{
+margin-bottom:20px;
+color:#93c5fd;
 }
 
-.day {
-    background: rgba(255,255,255,0.05);
-    padding: 18px;
-    border-radius: 14px;
-    margin-bottom: 16px;
+.day{
+background:#1e293b;
+padding:18px;
+border-radius:15px;
+margin-bottom:18px;
 }
 
-.day h3 {
-    margin-bottom: 12px;
-    color: #f9fafb;
+.day h3{
+margin-bottom:14px;
+color:#f8fafc;
 }
 
-.task {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 10px;
-    padding: 8px;
-    border-radius: 10px;
-    transition: 0.2s;
+.task{
+display:flex;
+gap:10px;
+margin-bottom:10px;
+padding:8px;
+border-radius:10px;
 }
 
-.task:hover {
-    background: rgba(255,255,255,0.05);
+.task:hover{
+background:rgba(255,255,255,0.05);
 }
 
-input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-top: 2px;
-    accent-color: #22c55e;
+input[type="checkbox"]{
+width:18px;
+height:18px;
+margin-top:3px;
+accent-color:#22c55e;
 }
 
-.completed {
-    text-decoration: line-through;
-    opacity: 0.6;
+.completed{
+text-decoration:line-through;
+opacity:0.6;
 }
 
-.exam-day {
-    border-left: 5px solid #ef4444;
+.exam-day{
+border-left:5px solid #ef4444;
 }
 
-.quote-box {
-    margin-top: 40px;
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    color: #d1d5db;
-    font-style: italic;
+.section-label{
+color:#fca5a5;
+font-weight:bold;
+margin-top:10px;
 }
 
-.reset-btn {
-    display: block;
-    margin: 25px auto;
-    padding: 12px 22px;
-    border: none;
-    border-radius: 12px;
-    background: #ef4444;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
+.reset-btn{
+display:block;
+margin:30px auto;
+padding:14px 24px;
+font-size:1rem;
+border:none;
+border-radius:12px;
+background:#ef4444;
+color:white;
+cursor:pointer;
 }
 
-.reset-btn:hover {
-    background: #dc2626;
+.quote-box{
+margin-top:30px;
+background:#1e293b;
+padding:25px;
+border-radius:18px;
+text-align:center;
+font-style:italic;
+color:#d1d5db;
 }
 
-@media(max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
+@media(max-width:768px){
+body{
+padding:12px;
+}
+
+h1{
+font-size:2rem;
+}
 }
 </style>
 </head>
@@ -151,222 +153,333 @@ input[type="checkbox"] {
 
 <div class="container">
 
-<h1>📚 Exam Study Planner</h1>
-<p class="subtitle">13 May – 15 June | Goal: 55+/60</p>
+<h1>⚖️ Detailed Exam Planner</h1>
+<p class="subtitle">Built according to your actual syllabus + case law + commentary reading</p>
 
 <div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
+<div class="progress-bar" id="progressBar"></div>
 </div>
 
 <p class="progress-text" id="progressText">0% Completed</p>
 
 <div class="phase">
-    <h2>Phase 1 — Contract + Torts</h2>
+<h2>13–21 MAY — CONTRACT II + TORTS</h2>
 
-    <div class="day">
-        <h3>13 May</h3>
+<div class="day">
+<h3>13 May</h3>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Contract: Indemnity + Guarantee</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts: Nature of Tort + Defences</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Write 2 answers from memory</span></label>
-    </div>
+<p class="section-label">Contract II</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Indemnity and Guarantee — concepts + distinctions</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Rights and duties of indemnifier and surety</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Discharge of surety</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read commentary from Avtar Singh / Pollock & Mulla</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: Bank of Bihar v Damodar Prasad</span></label>
 
-    <div class="day">
-        <h3>14 May</h3>
+<p class="section-label">Torts</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Definition and development of tort</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Distinction: Tort vs Contract vs Crime</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Injuria sine damnum + Damnum sine injuria</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: Ashby v White</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Contract: Bailment + Pledge</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts: Negligence + Nervous Shock</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>History: Mayor's Court</span></label>
-    </div>
+<div class="day">
+<h3>14 May</h3>
 
-    <div class="day">
-        <h3>15 May</h3>
+<p class="section-label">Contract II</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Rights and duties of bailor/bailee</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Lien and pledge</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read commentary notes</span></label>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Contract: Agency + Termination</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts: Nuisance + False Imprisonment</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Practice one 10-marker from each subject</span></label>
-    </div>
+<p class="section-label">Torts</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Negligence — essentials and duty of care</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Nervous shock</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read full judgment summary: Donoghue v Stevenson</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: King v Phillips</span></label>
 
-    <div class="day">
-        <h3>16 May</h3>
+<p class="section-label">History</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Charter of 1600 and 1661</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Mayor's Court of 1726</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Contract: Partnership Basics</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts: Vicarious Liability</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>FM: Time Value of Money</span></label>
-    </div>
+<div class="day">
+<h3>15 May</h3>
 
-    <div class="day">
-        <h3>17 May</h3>
+<p class="section-label">Contract II</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Agent and principal definitions</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Creation and termination of agency</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: Bolton v Lambert</span></label>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Contract: Dissolution of Partnership</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts: Defamation</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>FM: PV/FV Numericals</span></label>
-    </div>
+<p class="section-label">Torts</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Nuisance</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>False imprisonment and malicious prosecution</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: Bhim Singh v State of J&K</span></label>
 
-    <div class="day">
-        <h3>18 May</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Write one 10-marker answer from each subject</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Contract: Sale of Goods Act</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts: Product Liability</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Case law revision</span></label>
-    </div>
+<div class="day">
+<h3>16 May</h3>
 
-    <div class="day">
-        <h3>19 May</h3>
+<p class="section-label">Contract II</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Nature of partnership firm</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Rights and duties of partners inter se</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Minor partner</span></label>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Negotiable Instruments</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts Full Revision</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>FM: NPV Basics</span></label>
-    </div>
+<p class="section-label">Torts</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Vicarious liability</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Sovereign immunity</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: Kasturi Lal v State of UP</span></label>
 
-    <div class="day">
-        <h3>20 May</h3>
+<p class="section-label">Financial Management</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Time value of money concepts</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Full Contract Revision</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Create revision charts</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Practice 3 long answers</span></label>
-    </div>
+<div class="day">
+<h3>17 May</h3>
 
-    <div class="day exam-day">
-        <h3>22 May — CONTRACT EXAM</h3>
+<p class="section-label">Contract II</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Incoming and outgoing partners</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Dissolution and consequences</span></label>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Contract Exam Complete</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Light Torts Revision</span></label>
-    </div>
+<p class="section-label">Torts</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Strict liability and absolute liability</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Defamation</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: D.P Choudhary v Manjulata</span></label>
+
+<p class="section-label">FM</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>PV/FV numericals practice</span></label>
+</div>
+
+<div class="day">
+<h3>18 May</h3>
+
+<p class="section-label">Contract II</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Sale vs agreement to sale</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Conditions and warranties</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Rights of unpaid seller</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read commentary from Avtar Singh</span></label>
+
+<p class="section-label">Torts</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Consumer Protection Act definitions</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Consumer courts and product liability</span></label>
+</div>
+
+<div class="day">
+<h3>19 May</h3>
+
+<p class="section-label">Contract II</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Negotiable instruments definitions and kinds</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Holder and holder in due course</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Crossing of cheque and dishonour</span></label>
+
+<p class="section-label">Torts</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Complete revision of all case laws</span></label>
+
+<p class="section-label">FM</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>NPV basics</span></label>
+</div>
+
+<div class="day">
+<h3>20 May</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Full Contract II revision</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Revise all important case laws</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read short notes from commentary books</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Practice 3 long answers timed</span></label>
+</div>
+
+<div class="day">
+<h3>21 May</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Contract II final recall revision</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Case law rapid revision</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read highlighted portions from commentaries</span></label>
+</div>
+
+<div class="day exam-day">
+<h3>22 May — CONTRACT II EXAM</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Contract exam complete</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Light torts revision at night</span></label>
+</div>
+
 </div>
 
 <div class="phase">
-    <h2>Phase 2 — Torts + Constitutional Law</h2>
+<h2>23–29 MAY — TORTS + CONSTITUTIONAL LAW</h2>
 
-    <div class="day">
-        <h3>23–24 May</h3>
+<div class="day">
+<h3>23–24 May</h3>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts: Negligence + Defamation</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Consti: Preamble + Federalism</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>History: Hastings + Cornwallis</span></label>
-    </div>
+<p class="section-label">Torts</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Negligence revision + nervous shock</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Strict liability vs absolute liability</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read all remaining tort case briefs</span></label>
 
-    <div class="day exam-day">
-        <h3>26 May — TORTS EXAM</h3>
+<p class="section-label">Constitutional Law</p>
+<label class="task"><input type="checkbox" class="checkbox"><span>Definition of Constitution and Constitutionalism</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Preamble + salient features</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Federal nature of Constitution</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: Kesavananda Bharati case</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Torts Exam Complete</span></label>
-    </div>
+<div class="day">
+<h3>25 May</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Parliament: composition + privileges</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>President and Governor</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Supreme Court and High Courts</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: SR Bommai + Minerva Mills</span></label>
+</div>
 
-    <div class="day">
-        <h3>27–28 May</h3>
+<div class="day exam-day">
+<h3>26 May — TORTS EXAM</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Torts exam complete</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Distribution of Powers</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Emergency Provisions</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>5 Long Answers Daily</span></label>
-    </div>
+<div class="day">
+<h3>27–28 May</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Legislative, administrative and financial relations</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Doctrine of pith and substance</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Doctrine of repugnancy</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Emergency provisions</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Basic structure doctrine</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Read: Golaknath + IR Coelho</span></label>
+</div>
 
-    <div class="day exam-day">
-        <h3>29 May — CONSTITUTIONAL LAW EXAM</h3>
+<div class="day exam-day">
+<h3>29 May — CONSTITUTIONAL LAW EXAM</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Consti exam complete</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Consti Exam Complete</span></label>
-    </div>
 </div>
 
 <div class="phase">
-    <h2>Phase 3 — History + English</h2>
+<h2>30 MAY – 4 JUNE — LEGAL HISTORY + ENGLISH</h2>
 
-    <div class="day">
-        <h3>30 May – 1 June</h3>
+<div class="day">
+<h3>30 May</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Charters of 1600 and 1661</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Supreme Court under Regulating Act 1773</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Cases of Raja Nand Kumar, Patna and Cossijurah</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Mayor's Court + Adalat System</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>High Courts + Privy Council</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>GOI Acts + Constituent Assembly</span></label>
-    </div>
+<div class="day">
+<h3>31 May</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Warren Hastings Judicial Plans</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Cornwallis reforms</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Bentinck reforms</span></label>
+</div>
 
-    <div class="day exam-day">
-        <h3>2 June — HISTORY EXAM</h3>
+<div class="day">
+<h3>1 June</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Whigs, Paternalists and Utilitarians</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Indian High Courts Act 1861</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Government of India Acts</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Indian Independence Act 1947</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>History Exam Complete</span></label>
-    </div>
+<div class="day exam-day">
+<h3>2 June — HISTORY EXAM</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>History exam complete</span></label>
+</div>
 
-    <div class="day exam-day">
-        <h3>4 June — ENGLISH EXAM</h3>
+<div class="day">
+<h3>3 June — ENGLISH PREP</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Legal writing and legal language</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Client interviewing and counselling</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Professional communication</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>A Fine Balance + Draupadi themes</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>English Exam Complete</span></label>
-    </div>
+<div class="day exam-day">
+<h3>4 June — ENGLISH EXAM</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>English exam complete</span></label>
+</div>
+
 </div>
 
 <div class="phase">
-    <h2>Phase 4 — FM + LRMC</h2>
+<h2>5–15 JUNE — FINANCIAL MANAGEMENT + LRMC</h2>
 
-    <div class="day">
-        <h3>5–11 June</h3>
+<div class="day">
+<h3>5–11 June</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Time value of money numericals</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>NPV, PI, IRR, ARR</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Cost of capital and WACC</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Capital structure theories</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Dividend theories</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Working capital management</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Daily numerical practice</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>TVM + NPV + IRR</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Capital Structure Theories</span></label>
-        <label class="task"><input type="checkbox" class="checkbox"> <span>Daily Numericals</span></label>
-    </div>
+<div class="day exam-day">
+<h3>12 June — FINANCIAL MANAGEMENT EXAM</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>FM exam complete</span></label>
+</div>
 
-    <div class="day exam-day">
-        <h3>12 June — FINANCIAL MANAGEMENT EXAM</h3>
+<div class="day">
+<h3>13–14 June — LRMC</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>Moot court structure</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Memorial drafting</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Research ethics and citation</span></label>
+<label class="task"><input type="checkbox" class="checkbox"><span>Interviewing and counselling basics</span></label>
+</div>
 
-        <label class="task"><input type="checkbox" class="checkbox"> <span>FM Exam Complete</span></label>
-    </div>
+<div class="day exam-day">
+<h3>15 June — LRMC EXAM</h3>
+<label class="task"><input type="checkbox" class="checkbox"><span>LRMC exam complete</span></label>
+</div>
 
-    <div class="day exam-day">
-        <h3>15 June — LRMC EXAM</h3>
-
-        <label class="task"><input type="checkbox" class="checkbox"> <span>LRMC Exam Complete</span></label>
-    </div>
 </div>
 
 <button class="reset-btn" onclick="resetProgress()">Reset Progress</button>
 
-<div class="quote-box" id="quoteBox">
-    “Discipline will carry you longer than motivation ever can.”
+<div class="quote-box">
+“Reading bare acts gives you the skeleton. Reading commentaries and judgments gives you the soul of law.”
 </div>
 
 </div>
 
 <script>
-const checkboxes = document.querySelectorAll('.checkbox');
-const progressBar = document.getElementById('progressBar');
-const progressText = document.getElementById('progressText');
+const checkboxes=document.querySelectorAll('.checkbox');
+const progressBar=document.getElementById('progressBar');
+const progressText=document.getElementById('progressText');
 
-function updateProgress() {
-    const total = checkboxes.length;
-    const checked = document.querySelectorAll('.checkbox:checked').length;
+function updateProgress(){
+const total=checkboxes.length;
+const checked=document.querySelectorAll('.checkbox:checked').length;
+const percentage=Math.round((checked/total)*100);
 
-    const percentage = Math.round((checked / total) * 100);
+progressBar.style.width=percentage+'%';
+progressText.innerText=percentage+'% Completed';
 
-    progressBar.style.width = percentage + '%';
-    progressText.innerText = percentage + '% Completed';
+checkboxes.forEach((checkbox,index)=>{
+const text=checkbox.parentElement.querySelector('span');
 
-    checkboxes.forEach((checkbox, index) => {
-        const text = checkbox.parentElement.querySelector('span');
-
-        if (checkbox.checked) {
-            text.classList.add('completed');
-            localStorage.setItem('checkbox-' + index, true);
-        } else {
-            text.classList.remove('completed');
-            localStorage.setItem('checkbox-' + index, false);
-        }
-    });
+if(checkbox.checked){
+text.classList.add('completed');
+localStorage.setItem('checkbox-'+index,true);
+}else{
+text.classList.remove('completed');
+localStorage.setItem('checkbox-'+index,false);
+}
+});
 }
 
-checkboxes.forEach((checkbox, index) => {
-    const saved = localStorage.getItem('checkbox-' + index);
+checkboxes.forEach((checkbox,index)=>{
+const saved=localStorage.getItem('checkbox-'+index);
 
-    if (saved === 'true') {
-        checkbox.checked = true;
-    }
+if(saved==='true'){
+checkbox.checked=true;
+}
 
-    checkbox.addEventListener('change', updateProgress);
+checkbox.addEventListener('change',updateProgress);
 });
 
-function resetProgress() {
-    checkboxes.forEach((checkbox, index) => {
-        checkbox.checked = false;
-        localStorage.setItem('checkbox-' + index, false);
-    });
+function resetProgress(){
+checkboxes.forEach((checkbox,index)=>{
+checkbox.checked=false;
+localStorage.setItem('checkbox-'+index,false);
+});
 
-    updateProgress();
+updateProgress();
 }
 
 updateProgress();
